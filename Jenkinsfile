@@ -10,7 +10,7 @@ pipeline {
 
         stage('Stage 2') {
             steps {
-                error 'Simulating a failure in stage 2'
+                echo 'I’m on stage 2'
             }
         }
 
