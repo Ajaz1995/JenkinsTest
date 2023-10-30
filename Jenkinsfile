@@ -6,7 +6,7 @@ pipeline {
    	    steps {
         	 sh 'javac HelloWorld.java'
        		 sh 'jar cf helloworld.jar HelloWorld.class'
-       		 sh 'mv helloworld.jar \\wsl$\Ubuntu\home\ajaz\JenkinsTest'
+       		 sh 'mv helloworld.jar /home/ajaz/JenkinsTest'
     	}
     }
 
@@ -19,7 +19,7 @@ pipeline {
         stage('Stage 3') {
     steps {
         // Pull the artifact
-        sh 'cp \\wsl$\Ubuntu\home\ajaz\JenkinsTest\helloworld.jar .'
+        sh 'cp /home/ajaz/JenkinsTest/helloworld.jar .'
         // Execute the application
         sh 'java -jar helloworld.jar'
   	  }
