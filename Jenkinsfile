@@ -6,7 +6,7 @@ pipeline {
                 // Assuming your Java file is named HelloWorld.java
                 sh 'javac HelloWorld.java'
                 sh 'jar cf HelloWorld.jar HelloWorld.class'
-                sh 'mv HelloWorld.jar D:/MyBuild/'
+                sh 'mv HelloWorld.jar /home/ajaz/Firstbuild'
             }
         }
         stage('Stage 2') {
@@ -17,9 +17,9 @@ pipeline {
         stage('Execute HelloWorld') {
             steps {
                 // Copy the artifact to the desired location
-                sh 'cp HelloWorld.jar D:/MyBuild/HelloWorld.jar'
+                sh 'cp HelloWorld.jar /home/ajaz/Firstbuild/HelloWorld.jar'
                 // Execute the HelloWorld application
-                sh 'java -jar D:/MyBuild/HelloWorld.jar'
+                sh 'java -jar /home/ajaz/Firstbuild/HelloWorld.jar'
             }
         }
     }
