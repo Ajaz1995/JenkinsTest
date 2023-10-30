@@ -6,6 +6,7 @@ pipeline {
                 // Assuming your Java file is named HelloWorld.java
                 sh 'javac HelloWorld.java'
                 sh 'jar cf HelloWorld.jar HelloWorld.class'
+                sh 'mv HelloWorld.jar D:/my app/HelloWorld.jar'
             }
         }
         stage('Stage 2') {
