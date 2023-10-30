@@ -1,26 +1,31 @@
 pipeline {
     agent any
-
     stages {
-        stage('Stage 1') {
+        stage('Build Java Project') {
             steps {
-                echo 'I’m on stage 1'
+                // Assuming your Java file is named HelloWorld.java
+                sh 'javac HelloWorld.java'
+                sh 'jar cf HelloWorld.jar HelloWorld.class'
             }
         }
-
         stage('Stage 2') {
             steps {
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    echo 'I’m on stage 2'
-                    exit 1
-                }
+                echo 'i’m on stage 2'
             }
         }
-
-        stage('Stage 3') {
+        stage('Execute HelloWorld') {
             steps {
-                echo 'I’m on stage 3'
+                // Copy the artifact to the desired location
+                sh 'cp HelloWorld.jar /home/ajaz/JenkinsTest'
+                // Execute the HelloWorld application
+                sh 'java -jar /home/ajaz/JenkinsTest/HelloWorld.jar'
             }
+        }
+    }
+    post {
+        success {
+            // Archive the artifact
+            archiveArtifacts artifacts: 'HelloWorld.jar', fingerprint: true
         }
     }
 }
