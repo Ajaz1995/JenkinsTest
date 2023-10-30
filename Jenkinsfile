@@ -17,9 +17,9 @@ pipeline {
         stage('Execute HelloWorld') {
             steps {
                 // Copy the artifact to the desired location
-                sh 'cp HelloWorld.jar D:/my app/HelloWorld.jar'
+                sh 'cp HelloWorld.jar D:/MyBuild/HelloWorld.jar'
                 // Execute the HelloWorld application
-                sh 'java -jar D:/my app/HelloWorld.jar'
+                sh 'java -jar D:/MyBuild/HelloWorld.jar'
             }
         }
     }
