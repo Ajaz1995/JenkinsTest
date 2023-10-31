@@ -19,6 +19,13 @@ pipeline {
                 sh 'cp HelloWorld.jar /home/ajaz/Firstbuild/JenkinsTest/HelloWorld.jar'
                 sh 'java -jar /home/ajaz/Firstbuild/JenkinsTest/HelloWorld.jar'
             }
+         }
+        
+        post {
+        success {
+            archiveArtifacts artifacts: 'HelloWorld.jar', fingerprint: true
+            
+            }
         }
     }
 }
