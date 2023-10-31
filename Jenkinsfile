@@ -22,7 +22,7 @@ pipeline {
      }
         post {
         success {
-            archiveArtifacts artifacts: 'HelloWorld.jar', fingerprint: true
+            archiveArtifacts artifacts: 'HelloWorld.jar'
             
             }
         }
