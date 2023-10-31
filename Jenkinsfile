@@ -5,8 +5,6 @@ pipeline {
             steps {
                 sh 'javac HelloWorld.java'
                 sh 'jar cf HelloWorld.jar HelloWorld.class'
-                // Create the target directory if it doesn't exist
-                sh 'mkdir -p /home/ajaz/Firstbuild'
                 sh 'mv HelloWorld.jar /home/ajaz/Firstbuild'
             }
         }
@@ -20,11 +18,6 @@ pipeline {
                 sh 'cp HelloWorld.jar /home/ajaz/Firstbuild/HelloWorld.jar'
                 sh 'java -jar /home/ajaz/Firstbuild/HelloWorld.jar'
             }
-        }
-    }
-    post {
-        success {
-            archiveArtifacts artifacts: 'HelloWorld.jar', fingerprint: true
         }
     }
 }
