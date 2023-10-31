@@ -20,7 +20,7 @@ pipeline {
                 sh 'java -jar /home/ajaz/Firstbuild/JenkinsTest/HelloWorld.jar'
             }
          }
-        
+     }
         post {
         success {
             archiveArtifacts artifacts: 'HelloWorld.jar', fingerprint: true
@@ -28,4 +28,3 @@ pipeline {
             }
         }
     }
-}
