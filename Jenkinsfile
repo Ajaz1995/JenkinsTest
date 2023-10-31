@@ -4,7 +4,7 @@ pipeline {
         stage('Build Java Project') {
             steps {
                 sh 'javac HelloWorld.java'
-                sh 'jar cfm HelloWorld.jar Manifest.txt -C HelloWorld.class'
+                sh 'jar cf HelloWorld.jar HelloWorld.class'
                 sh 'mv HelloWorld.jar /var/jenkins_home/HelloWorld.jar'
             }
         }
