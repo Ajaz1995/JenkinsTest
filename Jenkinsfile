@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'javac HelloWorld.java'
                 sh 'jar cf HelloWorld.jar HelloWorld.class'
+                sh 'mkdir -p /home/ajaz/Firstbuild/JenkinsTest'
                 sh 'mv HelloWorld.jar /home/ajaz/Firstbuild/JenkinsTest'
             }
         }
