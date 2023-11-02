@@ -6,6 +6,7 @@ pipeline {
                 sh 'javac HelloWorld.java'
                 sh 'jar cfm HelloWorld.jar Manifest.txt HelloWorld.class'
                 sh 'mv HelloWorld.jar /var/jenkins_home/HelloWorld.jar'
+                sh 'pwd'
             }
         }
         stage('Stage 2') {
