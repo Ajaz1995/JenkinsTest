@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'javac HelloWorld.java'
                 sh 'jar cfm HelloWorld.jar Manifest.txt HelloWorld.class'
-                sh 'mv HelloWorld.jar /home/ajaz/Firstbuild/JenkinsTest/HelloWorld.jar'
+                sh 'mv HelloWorld.jar /var/jenkins_home/HelloWorld.jar'
             }
         }
         stage('Stage 2') {
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Execute HelloWorld') {
             steps {
-                sh 'cp /home/ajaz/Firstbuild/JenkinsTest/HelloWorld.jar .'
+                sh 'cp /var/jenkins_home/HelloWorld.jar .'
                 sh 'java -jar HelloWorld.jar'
             }
          }
