@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'javac HelloWorld.java'
                 sh 'jar cfm HelloWorld.jar Manifest.txt HelloWorld.class'
+                sh 'rm -f /var/jenkins_home/HelloWorld.jar
                 //sh 'mv HelloWorld.jar /var/jenkins_home/HelloWorld.jar'/
                 sh 'pwd'
             }
