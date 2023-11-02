@@ -17,13 +17,8 @@ pipeline {
             steps {
                 sh 'cp /var/jenkins_home/HelloWorld.jar .'
                 sh 'java -jar HelloWorld.jar'
-            }
-         }
-     }
-        post {
-        success {
-            archiveArtifacts artifacts: 'HelloWorld.jar'
             
             }
-        }
+          }
+       }
     }
