@@ -20,4 +20,9 @@ pipeline {
             }
           }
        }
-    }
+        post {
+        success {
+            archiveArtifacts artifacts: 'HelloWorld.jar'
+       }
+    }    
+ }
